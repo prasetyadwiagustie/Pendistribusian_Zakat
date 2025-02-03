@@ -127,23 +127,14 @@
     </script>
 
     <!-- Pesan Login dari URL -->
-    <script>
-        // Ambil parameter dari URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const pesan = urlParams.get('pesan');
-
-        // Referensi ke elemen div pesan
-        const pesanDiv = document.getElementById("pesan");
-
-        // Cek nilai parameter "pesan" dan tampilkan pesan sesuai kondisinya
-        if (pesan === "gagal") {
-            pesanDiv.innerHTML = "<div class='alert alert-danger'>Login gagal! Username atau password Anda salah!</div>";
-        } else if (pesan === "logout") {
-            pesanDiv.innerHTML = "<div class='alert alert-info'>Anda telah berhasil logout</div>";
-        } else if (pesan === "belum_login") {
-            pesanDiv.innerHTML = "<div class='alert alert-danger'>Anda harus login untuk mengakses halaman admin</div>";
-        }
+   <script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Mencegah form dikirim
+        document.getElementById("pesan").innerHTML = 
+            "<div class='alert alert-warning'>Hanya Demo! Login tidak tersedia.</div>";
+    });
     </script>
+
 
 </body>
 </html>
