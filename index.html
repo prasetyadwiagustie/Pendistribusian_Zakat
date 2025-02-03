@@ -13,6 +13,7 @@
     <script src="assets/js/bootstrap.js"></script>
 
     <style>
+        /* Styling untuk Body */
         body {
             margin: 0;
             padding: 0;
@@ -28,6 +29,7 @@
             background-color: black;
         }
 
+        /* Slideshow */
         .slideshow {
             position: fixed;
             top: 0;
@@ -50,17 +52,27 @@
             opacity: 1;
         }
 
-        .content {
+        /* Styling untuk Konten Utama */
+        .container-login {
             position: relative;
             z-index: 1;
-            padding: 20px;
-            max-width: 400px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
             border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
-        .content h2 {
+        .container-login h2 {
             margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        /* Styling untuk Pesan Login */
+        #pesan {
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -75,29 +87,27 @@
     </div>
 
     <!-- Login Form -->
-    <div class="content">
+    <div class="container-login">
         <h2><b>SISTEM INFORMASI LAUNDRY</b></h2>
-        <div class="container">
-            <div class="col-md-4 col-md-offset-4">
-               
-                <form action="login.php" method="post">
-                    <div class="panel">
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" class="form-control" placeholder="Masukkan username" name="username" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Masukkan password" name="password" required>
-                            </div>
-                            <input type="submit" class="btn btn-primary btn-block" value="Log In">
-                        </div>
-                    </div>
-                    <a href="dokumentasi.html" style="color: white;">Dokumentasi</a>
-                </form>
+
+        <div id="pesan"></div> <!-- Tempat untuk menampilkan pesan login -->
+
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" placeholder="Masukkan username" name="username" required>
             </div>
-        </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Masukkan password" name="password" required>
+            </div>
+
+            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+        </form>
+
+        <br>
+        <a href="dokumentasi.html" style="color: white;">Dokumentasi</a>
     </div>
 
     <!-- Slideshow Script -->
@@ -113,26 +123,25 @@
 
         setInterval(nextSlide, 5000);
     </script>
-    <div id="pesan"></div>
 
-<script>
-    // Ambil parameter dari URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const pesan = urlParams.get('pesan');
-    
-    // Referensi ke elemen div pesan
-    const pesanDiv = document.getElementById("pesan");
+    <!-- Pesan Login dari URL -->
+    <script>
+        // Ambil parameter dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const pesan = urlParams.get('pesan');
 
-    // Cek nilai parameter "pesan" dan tampilkan pesan sesuai kondisinya
-    if (pesan === "gagal") {
-        pesanDiv.innerHTML = "<div class='alert alert-danger'>Login gagal! Username atau password Anda salah!</div>";
-    } else if (pesan === "logout") {
-        pesanDiv.innerHTML = "<div class='alert alert-info'>Anda telah berhasil logout</div>";
-    } else if (pesan === "belum_login") {
-        pesanDiv.innerHTML = "<div class='alert alert-danger'>Anda harus login untuk mengakses halaman admin</div>";
-    }
-</script>
+        // Referensi ke elemen div pesan
+        const pesanDiv = document.getElementById("pesan");
 
+        // Cek nilai parameter "pesan" dan tampilkan pesan sesuai kondisinya
+        if (pesan === "gagal") {
+            pesanDiv.innerHTML = "<div class='alert alert-danger'>Login gagal! Username atau password Anda salah!</div>";
+        } else if (pesan === "logout") {
+            pesanDiv.innerHTML = "<div class='alert alert-info'>Anda telah berhasil logout</div>";
+        } else if (pesan === "belum_login") {
+            pesanDiv.innerHTML = "<div class='alert alert-danger'>Anda harus login untuk mengakses halaman admin</div>";
+        }
+    </script>
 
 </body>
 </html>
