@@ -48,5 +48,4 @@ Proyek ini dirilis di bawah lisensi **MIT**. Lihat detailnya di [LICENSE](LICENS
 
 ## 📞 Kontak & Dukungan
 Jika ada pertanyaan atau kendala, silakan hubungi kami:
-📧 Email: support@zakatindonesia.or.id  
-🌍 Website: [zakatindonesia.or.id](https://zakatindonesia.or.id)  
+📧 Email: prasetyadwiagustie@gmail.com 
