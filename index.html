@@ -79,17 +79,7 @@
         <h2><b>SISTEM INFORMASI LAUNDRY</b></h2>
         <div class="container">
             <div class="col-md-4 col-md-offset-4">
-                <?php
-                if (isset($_GET['pesan'])) {
-                    if ($_GET['pesan'] == "gagal") {
-                        echo "<div class='alert alert-danger'>Login gagal! Username atau password Anda salah!</div>";
-                    } else if ($_GET['pesan'] == "logout") {
-                        echo "<div class='alert alert-info'>Anda telah berhasil logout</div>";
-                    } else if ($_GET['pesan'] == "belum_login") {
-                        echo "<div class='alert alert-danger'>Anda harus login untuk mengakses halaman admin</div>";
-                    }
-                }
-                ?>
+               
                 <form action="login.php" method="post">
                     <div class="panel">
                         <div class="panel-body">
@@ -123,6 +113,26 @@
 
         setInterval(nextSlide, 5000);
     </script>
+    <div id="pesan"></div>
+
+<script>
+    // Ambil parameter dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const pesan = urlParams.get('pesan');
+    
+    // Referensi ke elemen div pesan
+    const pesanDiv = document.getElementById("pesan");
+
+    // Cek nilai parameter "pesan" dan tampilkan pesan sesuai kondisinya
+    if (pesan === "gagal") {
+        pesanDiv.innerHTML = "<div class='alert alert-danger'>Login gagal! Username atau password Anda salah!</div>";
+    } else if (pesan === "logout") {
+        pesanDiv.innerHTML = "<div class='alert alert-info'>Anda telah berhasil logout</div>";
+    } else if (pesan === "belum_login") {
+        pesanDiv.innerHTML = "<div class='alert alert-danger'>Anda harus login untuk mengakses halaman admin</div>";
+    }
+</script>
+
 
 </body>
 </html>
